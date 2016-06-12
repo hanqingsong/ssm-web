@@ -13,19 +13,19 @@ import com.han.model.User;
 import com.han.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//配置了@ContextConfiguration注解并使用该注解的locations属性指明spring和配置文件之后，
+//閰嶇疆浜咢ContextConfiguration娉ㄨВ骞朵娇鐢ㄨ娉ㄨВ鐨刲ocations灞炴�ф寚鏄巗pring鍜岄厤缃枃浠朵箣鍚庯紝
 @ContextConfiguration(locations = {"classpath:config/spring.xml", "classpath:config/spring-mybatis.xml" })
 public class MyBatisTestBySpringTestFramework {
 
-    //注入userService
+    //娉ㄥ叆userService
     @Autowired
     private UserService userService;
-    
+
     @Test
     public void testAddUser(){
         User user = new User();
         user.setId(UUID.randomUUID().toString().replaceAll("-", ""));
-        user.setName("xdp_gacl_白虎神皇");
+        user.setName("xdp_gacl_鐧借檸绁炵殗");
         userService.insert(user);
     }
     
@@ -38,7 +38,7 @@ public class MyBatisTestBySpringTestFramework {
     
     @Test
     public void testGetAllUser(){
-    	List<User> userList= userService.selectUsers();
-    	System.out.println(userList);
+        List<User> userList = userService.selectAllUser();
+        System.out.println(userList);
     }
 }
